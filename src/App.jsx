@@ -13,13 +13,13 @@ function App() {
                 <Navbar />
             </div>
             <Hero />
-            <div id="events">
+            {/* <div id="events">
                 <Events />
             </div>
             <div id="contact">
                 <Contact />
             </div>
-            <Footer />
+            <Footer /> */}
         </BrowserRouter>
     )
 }
