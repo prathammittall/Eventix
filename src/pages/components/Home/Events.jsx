@@ -12,7 +12,7 @@ const eventsData = [
         category: "Hackathon",
     },
     {
-        id: 1,
+        id: 6,
         title: "Hack with AI",
         date: "April 10, 2025",
         time: "10:00 AM - 6:00 PM",
@@ -21,7 +21,7 @@ const eventsData = [
         category: "Hackathon",
     },
     {
-        id: 1,
+        id: 2,
         title: "Hack with AI",
         date: "April 10, 2025",
         time: "10:00 AM - 6:00 PM",
@@ -30,7 +30,7 @@ const eventsData = [
         category: "Hackathon",
     },
     {
-        id: 1,
+        id: 3,
         title: "Hack with AI",
         date: "April 10, 2025",
         time: "10:00 AM - 6:00 PM",
@@ -39,7 +39,7 @@ const eventsData = [
         category: "Hackathon",
     },
     {
-        id: 1,
+        id: 4,
         title: "Hack with AI",
         date: "April 10, 2025",
         time: "10:00 AM - 6:00 PM",
@@ -48,7 +48,7 @@ const eventsData = [
         category: "Hackathon",
     },
     {
-        id: 1,
+        id: 5,
         title: "Hack with AI",
         date: "April 10, 2025",
         time: "10:00 AM - 6:00 PM",
