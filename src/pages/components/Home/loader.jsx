@@ -1,5 +1,7 @@
 import React from 'react'
 
+// Loader
+
 function loader() {
   return (
     <div className='w-full h-screen flex justify-center items-center'>
