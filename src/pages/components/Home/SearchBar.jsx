@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
+
 function SearchBar() {
     const [selected, setSelected] = useState("Offline");
 
