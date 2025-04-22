@@ -1,6 +1,6 @@
 import React from 'react'
 
-// Loader
+// Loader component for the Home page
 
 function loader() {
   return (
