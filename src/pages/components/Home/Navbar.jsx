@@ -1,4 +1,4 @@
-// Navbar.jsx
+//Navbar.jsx
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaHome, FaCalendarAlt, FaUsers } from 'react-icons/fa';
