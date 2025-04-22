@@ -3,7 +3,7 @@ import Cards from './Cards'
 import { motion } from 'framer-motion';
 
 function Events() {
-  // State for search input and filter selection
+  // State for search input and filter selections
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('All');
   const [displayCount, setDisplayCount] = useState(8); // Initially show 8 events
