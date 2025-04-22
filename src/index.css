@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap');
+
+.inner-loader {
+    animation: loader 2s ease-in 1;
+}
+
+.Heading {
+    font-family: "Mea Culpa", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes loader {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
