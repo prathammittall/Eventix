@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Loaders from './pages/components/Home/loader';
 import Navbar from './pages/components/Home/Navbar';
-// import SearchBar from './pages/components/Home/SearchBar';
 import Hero from './pages/components/Home/Hero';
 import Events from './pages/components/Home/Events';
 import Clubs from './pages/components/Home/Clubs';
