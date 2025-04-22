@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const clubsData = [
-  // Club card Information
+  // Club card Informations
   {
     name: "CodeTech Club",
     description: "Programming and software development club for tech enthusiasts",
