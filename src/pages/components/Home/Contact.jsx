@@ -9,6 +9,7 @@ function Contact() {
         <div className="absolute top-1/4 right-1/3 w-72 h-72 bg-[#A0DFFF]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-[#E1A0FF]/10 rounded-full blur-3xl"></div>
       </div>
+    
       
       <div className='max-w-7xl mx-auto'>
         <motion.div 
