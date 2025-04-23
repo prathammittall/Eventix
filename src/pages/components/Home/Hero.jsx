@@ -142,6 +142,7 @@ function Hero() {
             </div>
 
             {/* Dense left and right floating elements - hidden on mobile */}
+            
             <div className="absolute inset-0 pointer-events-none hidden md:block">
                 {floatingElements.map((item, index) => {
                     if (item.type === "social") {
