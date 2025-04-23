@@ -47,7 +47,6 @@ function App() {
                     {/* Content with relative positioning to appear above the fixed background */}
                     <div className="relative z-10">
                         <Navbar />
-                        {/* <SearchBar /> */}
                         <Hero />
                         <Events />
                         <Clubs />
