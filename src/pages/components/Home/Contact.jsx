@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 function Contact() {
   return (
     <div id="contact-section" className='w-full min-h-screen py-16 px-4 sm:px-6 lg:px-8'>
-      {/* Background gradient element */}
+      {/* Background gradient elements  */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 right-1/3 w-72 h-72 bg-[#A0DFFF]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-[#E1A0FF]/10 rounded-full blur-3xl"></div>
