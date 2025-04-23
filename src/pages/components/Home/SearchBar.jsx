@@ -16,6 +16,7 @@ function SearchBar() {
                 </div>
                 
                 {/* Large search bar in the center */}
+                
                 <div className="flex-1 mx-6 md:mx-10">
                     <div className="relative w-full group">
                         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
