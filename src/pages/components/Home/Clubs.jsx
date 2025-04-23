@@ -47,6 +47,7 @@ const clubsData = [
   }
 ];
 
+
 function Clubs() {
   return (
     <div id="clubs-section" className='w-full min-h-screen py-16 px-4 sm:px-6 lg:px-8'>
