@@ -151,6 +151,7 @@ function Events() {
     setDisplayCount(prevCount => Math.min(prevCount + 4, filteredEvents.length));
   };
 
+  
   // Function to reset filters
   const resetFilters = () => {
     setSearchQuery('');
