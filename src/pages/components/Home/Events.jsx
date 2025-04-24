@@ -151,7 +151,7 @@ function Events() {
     setDisplayCount(prevCount => Math.min(prevCount + 4, filteredEvents.length));
   };
 
-  
+
   // Function to reset filters
   const resetFilters = () => {
     setSearchQuery('');
@@ -159,6 +159,7 @@ function Events() {
     setDisplayCount(8);
   };
 
+  
   return (
     <div id="events-section" className='w-full min-h-screen py-16 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-7xl mx-auto'>
