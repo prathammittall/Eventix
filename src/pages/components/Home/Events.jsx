@@ -311,7 +311,7 @@ function Events() {
   )
 }
 
-// Filter Button Component
+// Filter Button Components
 const FilterButton = ({ text, isSelected, onClick }) => (
   <motion.button
     whileHover={{ scale: 1.05 }}
