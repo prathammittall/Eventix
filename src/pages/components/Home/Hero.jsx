@@ -120,7 +120,7 @@ function Hero() {
                     });
 
                     animation.onfinish = () => {
-                        // Smooth transition to next animation
+                        // Smooth transition to next animations
                         const nextDelay = Math.random() * 500;
                         setTimeout(animateFloat, nextDelay);
                     };
