@@ -272,6 +272,7 @@ function Hero() {
                             <span>Eventix</span>
                         ) : (
                             // Animated text for desktop
+                            
                             <>
                                 <motion.span className="inline-block" initial={{ y: 50 }} animate={{ y: 0 }} transition={{ type: "spring", damping: 12, stiffness: 100, delay: 0.5 }}>E</motion.span>
                                 <motion.span className="inline-block" initial={{ y: 50 }} animate={{ y: 0 }} transition={{ type: "spring", damping: 12, stiffness: 100, delay: 0.6 }}>v</motion.span>
