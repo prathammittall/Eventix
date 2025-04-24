@@ -47,6 +47,7 @@ export default function Navbar() {
     useEffect(() => {
         const handleScroll = () => {
             // Check if scrolled down for navbar background transparency
+            
             const scrollY = window.scrollY;
             setScrolledDown(scrollY > 20);
             
