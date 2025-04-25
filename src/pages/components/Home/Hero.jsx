@@ -62,6 +62,7 @@ function Hero() {
             setIsMobile(window.innerWidth < 768); // Consider mobile if less than md breakpoint
         };
 
+
         // Initial check
         checkMobile();
 
