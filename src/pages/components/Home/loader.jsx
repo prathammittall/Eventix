@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Loader component for the Home page
+// Loader component for the Home pages
 
 function Loader() {
   return (

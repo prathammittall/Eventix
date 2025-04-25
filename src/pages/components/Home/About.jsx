@@ -108,6 +108,7 @@ function About() {
               </div>
             </div>
 
+            
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: '0 10px 25px -5px rgba(255, 255, 255, 0.3)' }}
               whileTap={{ scale: 0.95 }}

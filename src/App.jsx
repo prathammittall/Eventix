@@ -21,7 +21,9 @@ function App() {
             once: true
         });
 
-        // Simulate loading time (you can replace this with actual loading logic)
+
+        // Simulate loadingg time you can replace this with actual loading logic
+        
         const timer = setTimeout(() => {
             setIsLoading(false);
         }, 2000);
