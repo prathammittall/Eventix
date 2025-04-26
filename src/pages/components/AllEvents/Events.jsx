@@ -89,6 +89,7 @@ const Explore = () => {
               viewport={{ once: true }}
               whileHover={{
                 y: -5, // Slight upward movement on hover.
+                
                 boxShadow: `0 16px 40px -8px ${event.color}40`, // Dynamic shadow color based on the event color
                 borderColor: `${event.color}30`, // Dynamic border color based on event color
                 transition: { duration: 0.3 },
