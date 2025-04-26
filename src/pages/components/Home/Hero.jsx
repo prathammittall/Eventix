@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMouse } from '@fortawesome/free-solid-svg-icons';
 
 // Dense arrangement of floating elements on left and right sides.
 const floatingElements = [
@@ -58,6 +60,13 @@ function Hero() {
     const [isMobile, setIsMobile] = useState(false);
     const [isNavigating, setIsNavigating] = useState(false);
     const navigate = useNavigate();
+
+    const handleScrollDown = () => {
+        const scrollTarget = document.getElementById('scroll-down');
+        if (scrollTarget) {
+            scrollTarget.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     // Check for mobile viewport
     useEffect(() => {
@@ -135,13 +144,6 @@ function Hero() {
             });
         }
     }, [isMobile]);
-
-    const handleExploreClick = () => {
-        setIsNavigating(true);
-        setTimeout(() => {
-            navigate('/about');
-        }, 100);
-    };
 
     return (
         <div id="hero-section" className='w-full h-screen bg-black overflow-hidden relative flex flex-col justify-center pt-20'>
@@ -339,14 +341,18 @@ function Hero() {
 
                     {/* Button */}
                     <button
-                        className="mt-6 px-8 py-3 bg-black text-white rounded-full text-lg font-medium backdrop-blur-sm border border-white/20 transition-all duration-300 hover:bg-white/10"
+                        onClick={handleScrollDown}
+                        className="mt-6 px-8 py-3 bg-black text-white rounded-full text-lg font-medium backdrop-blur-sm border border-white/20 transition-all duration-300 hover:bg-white/10 flex items-center gap-2"
                         style={{ boxShadow: '0 4px 16px -4px rgba(255, 255, 255, 0.2)' }}
-                        onClick={handleExploreClick}
                     >
-                        Explore Events
+                        Scroll Down
+                        <FontAwesomeIcon icon={faMouse} className="text-md" />
                     </button>
                 </div>
             </div>
+
+            {/* Scroll target */}
+            <div id="scroll-down" className="absolute bottom-0 w-full h-1"></div>
         </div>
     );
 }
