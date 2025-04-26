@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import Cards from './Cards'
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 function Events() {
+  const navigate = useNavigate();
   // State for search input and filter selection
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('All');
-  const [displayCount, setDisplayCount] = useState(8); // Initially show 8 events
 
   // Event data with image URLs, status type and location
   const eventsData = [
@@ -142,24 +143,17 @@ function Events() {
     return matchesSearch && matchesFilter;
   });
 
-  // Get the current events to display based on the display count
-  const displayedEvents = filteredEvents.slice(0, displayCount);
-  const hasMoreEvents = displayCount < filteredEvents.length;
-
-  // Function to load more events
-  const loadMoreEvents = () => {
-    setDisplayCount(prevCount => Math.min(prevCount + 4, filteredEvents.length));
-  };
-
-
   // Function to reset filters
   const resetFilters = () => {
     setSearchQuery('');
     setSelectedFilter('All');
-    setDisplayCount(8);
   };
 
-  
+  // Function to handle navigation to all events
+  const handleViewAllEvents = () => {
+    navigate('/all-events');
+  };
+
   return (
     <div id="events-section" className='w-full min-h-screen py-16 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-7xl mx-auto'>
@@ -227,8 +221,8 @@ function Events() {
         
         {/* Event Cards */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
-          {displayedEvents.length > 0 ? (
-            displayedEvents.map((event, index) => (
+          {filteredEvents.length > 0 ? (
+            filteredEvents.map((event, index) => (
               <motion.div 
                 key={event.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -261,37 +255,22 @@ function Events() {
           )}
         </div>
         
-        {/* View More Events Button - Styled like Hero section */}
+        {/* View More Events Button */}
         {filteredEvents.length > 0 && (
           <div className="mt-16 flex flex-col items-center justify-center">
-            {hasMoreEvents && (
-              <motion.button
-                whileHover={{ 
-                  scale: 1.05, 
-                  backgroundColor: 'rgba(255, 255, 255, 0.15)', 
-                  boxShadow: '0 10px 25px -5px rgba(255, 255, 255, 0.3)' 
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-black text-white rounded-full text-lg font-medium backdrop-blur-sm border border-white/20 transition-all duration-300 flex items-center gap-2"
-                style={{ boxShadow: '0 4px 16px -4px rgba(255, 255, 255, 0.2)' }}
-                onClick={loadMoreEvents}
-              >
-                <span>View More Events</span>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </motion.button>
-            )}
-            
-            {!hasMoreEvents && displayCount > 8 && (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-gray-400 mt-3"
-              >
-                You've reached the end of the list
-              </motion.div>
-            )}
+            <motion.button
+              whileHover={{ 
+                scale: 1.05, 
+                backgroundColor: 'rgba(255, 255, 255, 0.15)', 
+                boxShadow: '0 10px 25px -5px rgba(255, 255, 255, 0.3)' 
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-black text-white rounded-full text-lg font-medium backdrop-blur-sm border border-white/20 transition-all duration-300 flex items-center gap-2"
+              style={{ boxShadow: '0 4px 16px -4px rgba(255, 255, 255, 0.2)' }}
+              onClick={handleViewAllEvents}
+            >
+              <span>View All Events</span>
+            </motion.button>
             
             {/* Back to top button */}
             <motion.a
