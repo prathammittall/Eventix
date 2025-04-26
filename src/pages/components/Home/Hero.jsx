@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 // Dense arrangement of floating elements on left and right sides.
 const floatingElements = [
@@ -55,6 +56,8 @@ const featureTags = [
 function Hero() {
     const [logoLoaded, setLogoLoaded] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [isNavigating, setIsNavigating] = useState(false);
+    const navigate = useNavigate();
 
     // Check for mobile viewport
     useEffect(() => {
@@ -132,6 +135,13 @@ function Hero() {
             });
         }
     }, [isMobile]);
+
+    const handleExploreClick = () => {
+        setIsNavigating(true);
+        setTimeout(() => {
+            navigate('/about');
+        }, 100);
+    };
 
     return (
         <div id="hero-section" className='w-full h-screen bg-black overflow-hidden relative flex flex-col justify-center pt-20'>
@@ -331,6 +341,7 @@ function Hero() {
                     <button
                         className="mt-6 px-8 py-3 bg-black text-white rounded-full text-lg font-medium backdrop-blur-sm border border-white/20 transition-all duration-300 hover:bg-white/10"
                         style={{ boxShadow: '0 4px 16px -4px rgba(255, 255, 255, 0.2)' }}
+                        onClick={handleExploreClick}
                     >
                         Explore Events
                     </button>

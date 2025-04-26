@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loaders from './pages/components/Home/loader';
 import Navbar from './pages/components/Home/Navbar';
 import Hero from './pages/components/Home/Hero';
@@ -8,6 +8,7 @@ import Clubs from './pages/components/Home/Clubs';
 import About from './pages/components/Home/About';
 import Contact from './pages/components/Home/Contact';
 import Footer from './pages/components/Home/Footer';
+import AboutPage from './pages/components/AllEvents/Events';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -48,12 +49,19 @@ function App() {
                     
                     {/* Content with relative positioning to appear above the fixed background */}
                     <div className="relative z-10">
-                        <Navbar />
-                        <Hero />
-                        <Events />
-                        <Clubs />
-                        <About />
-                        <Contact />
+                        <Routes>
+                            <Route path="/" element={
+                                <>
+                                    <Navbar />
+                                    <Hero />
+                                    <Events />
+                                    <Clubs />
+                                    <About />
+                                    <Contact />
+                                </>
+                            } />
+                            <Route path="/about" element={<AboutPage />} />
+                        </Routes>
                         <Footer />
                     </div>
                 </div>

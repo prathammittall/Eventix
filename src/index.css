@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap');
-
 .inner-loader {
     animation: loader 2s ease-in 1;
 }
