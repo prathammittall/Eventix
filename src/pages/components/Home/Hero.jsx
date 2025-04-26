@@ -86,7 +86,7 @@ function Hero() {
                 element.style.opacity = '0';
                 element.style.transform = 'translate(0px, 0px) rotate(0deg)';
 
-                // Fade in animation
+                // Fade in animations
                 element.animate([
                     { opacity: 0, transform: 'translate(0px, 0px) rotate(0deg)' },
                     { opacity: 1, transform: 'translate(0px, 0px) rotate(0deg)' }
@@ -96,9 +96,9 @@ function Hero() {
                     fill: 'forwards'
                 });
 
-                // Smooth floating animation
+                // Smooth floating animations
                 const animateFloat = () => {
-                    // Smoother movement ranges
+                    // Smoother movement range
                     const moveX = Math.random() * 25 - 12.5; // -12.5px to +12.5px
                     const moveY = Math.random() * 25 - 12.5; // -12.5px to +12.5px
                     const rotateAmount = (Math.random() - 0.5) * 4; // -2deg to +2deg
