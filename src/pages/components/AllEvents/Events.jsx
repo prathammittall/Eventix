@@ -80,7 +80,7 @@ const Explore = () => {
               key={event.id}
               className="p-6 rounded-lg shadow-lg transition-shadow duration-300 relative overflow-hidden text-center"
               style={{
-                backgroundColor: 'rgba(29,29,29,255)', // Card background color
+                backgroundColor: 'rgba(29,29,29,255)', // Cards background color
                 boxShadow: `0 8px 32px -8px rgba(0,0,0,0.5)`, // Card shadow
               }}
               initial={{ opacity: 0, y: 20 }}
@@ -88,8 +88,8 @@ const Explore = () => {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{
-                y: -5, // Slight upward movement on hover
-                boxShadow: `0 16px 40px -8px ${event.color}40`, // Dynamic shadow color based on event color
+                y: -5, // Slight upward movement on hover.
+                boxShadow: `0 16px 40px -8px ${event.color}40`, // Dynamic shadow color based on the event color
                 borderColor: `${event.color}30`, // Dynamic border color based on event color
                 transition: { duration: 0.3 },
               }}
