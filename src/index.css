@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 .inner-loader {
     animation: loader 2s ease-in 1;
 }
