@@ -46,10 +46,10 @@ const Explore = () => {
     <section
       className="py-12 relative"
       style={{
-        background: 'black', // Base black background
+        background: 'black', // Base with black background
       }}
     >
-      {/* Gradient patches */}
+      {/* Gradient patche */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
