@@ -111,7 +111,7 @@ const Explore = () => {
                 <img
                   src={event.logo}
                   alt={`${event.club} logo`}
-                  className="w-12 h-12 rounded-full" // Inner logo remains circular
+                  className="w-12 h-12 rounded-full" // Inner logo  circular
                 />
               </motion.div>
               <h3 className="text-2xl font-bold mb-3 text-white">
