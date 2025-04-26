@@ -3,19 +3,19 @@ import { motion } from 'framer-motion';
 import Loader from '../Home/loader';
 
 const events = [
-  { id: 1, title: 'Hackathon 2025', club: 'Coding Club', date: 'May 10, 2025', venue: 'Auditorium A', description: 'A 48-hour coding marathon.', color: "#A0FFD6", logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
+  { id: 1, title: 'Hackathon 2025', club: 'Coding Club', date: 'May 10, 2025', venue: 'Auditorium A', description: 'A 48-hour coding marathon.', color: "#BAA0FF", logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 2, title: 'Tech Conference', club: 'Tech Society', date: 'June 15, 2025', venue: 'Hall B', description: 'Explore the latest in tech.',color: "#BAA0FF", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 3, title: 'Startup Pitch', club: 'Entrepreneur Club', date: 'July 20, 2025', venue: 'Room 101', description: 'Pitch your startup idea.',color: "#FFA0A0", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 4, title: 'AI Workshop', club: 'AI Club', date: 'August 5, 2025', venue: 'Lab 3', description: 'Learn about AI and ML.', color: "#FFE9A0",logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 5, title: 'Web Dev Bootcamp', club: 'Web Dev Club', date: 'September 12, 2025', venue: 'Room 202', description: 'Master web development.',color: "#A0DFFF", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 6, title: 'Cybersecurity Summit', club: 'Cyber Club', date: 'October 18, 2025', venue: 'Hall C', description: 'Stay ahead in security.', color: "#E1A0FF",logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
-  { id: 7, title: 'Cloud Expo', club: 'Cloud Enthusiasts', date: 'November 25, 2025', venue: 'Auditorium B', description: 'Discover cloud technologies.',color: "#A0FFD6" ,logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
+  { id: 7, title: 'Cloud Expo', club: 'Cloud Enthusiasts', date: 'November 25, 2025', venue: 'Auditorium B', description: 'Discover cloud technologies.',color: "#BAA0FF" ,logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 8, title: 'Data Science Meetup', club: 'Data Club', date: 'December 10, 2025', venue: 'Room 303', description: 'Dive into data science.', color: "#BAA0FF",logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 9, title: 'Blockchain Forum', club: 'Blockchain Society', date: 'January 15, 2026', venue: 'Hall D', description: 'Understand blockchain.',color: "#FFA0A0", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 10, title: 'IoT Workshop', club: 'IoT Club', date: 'February 20, 2026', venue: 'Lab 5', description: 'Explore IoT innovations.',color: "#FFE9A0", logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 11, title: 'AR/VR Hackathon', club: 'AR/VR Club', date: 'March 5, 2026', venue: 'Room 404', description: 'Build AR/VR projects.',color: "#A0DFFF", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 12, title: 'Game Dev Jam', club: 'Game Dev Club', date: 'April 10, 2026', venue: 'Auditorium C', description: 'Create amazing games.',color: "#E1A0FF", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
-  { id: 13, title: 'Design Thinking', club: 'Design Club', date: 'May 15, 2026', venue: 'Room 505', description: 'Innovate with design.',color: "#A0FFD6", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
+  { id: 13, title: 'Design Thinking', club: 'Design Club', date: 'May 15, 2026', venue: 'Room 505', description: 'Innovate with design.',color: "#BAA0FF", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 14, title: 'Robotics Challenge', club: 'Robotics Club', date: 'June 20, 2026', venue: 'Lab 6', description: 'Build and compete.',color: "#BAA0FF", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 15, title: 'Quantum Computing', club: 'Quantum Club', date: 'July 25, 2026', venue: 'Room 606', description: 'Learn quantum tech.', color: "#FFA0A0", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
   { id: 16, title: 'Cybersecurity Bootcamp', club: 'Cyber Club', date: 'August 30, 2026', venue: 'Lab 7', description: 'Hands-on cybersecurity training.',color: "#FFE9A0", logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlAiiSAGcSLGvTDcO7ti1HzXr59hXeDCeQhg&s' },
@@ -54,7 +54,7 @@ const Explore = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background: `
-            radial-gradient(circle at 90% 10%, rgba(160, 255, 214, 0.2), transparent 60%), /* Upper-right */
+            radial-gradient(circle at 90% 10%, rgba(186, 160, 255, 0.2), transparent 60%), /* Upper-right */
             radial-gradient(circle at 50% 90%, rgba(186, 160, 255, 0.2), transparent 60%) /* Bottom center */
           `,
           zIndex: 0,
