@@ -6,6 +6,7 @@ const Footer = () => {
     const [email, setEmail] = useState('');
 
 
+    
     // Animation variant
     const containerVariants = {
         hidden: { opacity: 0 },
