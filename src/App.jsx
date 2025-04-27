@@ -13,7 +13,6 @@ import AllEvents from './pages/components/AllEvents/Events';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Wrapper component to handle Navbar visibility
 const NavbarWrapper = () => {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
