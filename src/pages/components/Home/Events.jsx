@@ -158,7 +158,7 @@ function Events() {
     setSelectedFilter('All');
     setDisplayCount(8);
   };
-
+  
   
   return (
     <div id="events-section" className='w-full min-h-screen py-16 px-4 sm:px-6 lg:px-8'>
