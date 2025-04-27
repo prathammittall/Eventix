@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMouse } from '@fortawesome/free-solid-svg-icons';
 
-// Dense arrangement of floating elements on left and right sides.
+// Dense arrangement of floating elements on left and right side.
 const floatingElements = [
     // Left side elements - dense vertical distributions
     { src: "/images/sc1.png", initialX: "5%", initialY: "10%", size: "w-14 h-14", delay: 0.2, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
