@@ -1,49 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMouse } from '@fortawesome/free-solid-svg-icons';
 
 // Dense arrangement of floating elements on left and right sides.
 const floatingElements = [
     // Left side elements - dense vertical distributions
-    { type: "app", icon: "M", initialX: "5%", initialY: "10%", size: "w-14 h-14", delay: 0.2, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20" },
+    { src: "/images/sc1.png", initialX: "5%", initialY: "10%", size: "w-14 h-14", delay: 0.2, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-instagram", initialX: "9%", initialY: "18%", size: "w-12 h-12", delay: 0.3, color: "#E1A0FF", bg: "bg-[#E1A0FF]/20", shadow: "shadow-[#E1A0FF]/20" },
-    { type: "app", icon: "Y", initialX: "4%", initialY: "26%", size: "w-13 h-13", delay: 0.4, color: "#FFA0A0", bg: "bg-[#FFA0A0]/20", shadow: "shadow-[#FFA0A0]/20" },
+    { src: "/images/sc2.png", initialX: "4%", initialY: "26%", size: "w-13 h-13", delay: 0.4, color: "#FFA0A0", bg: "bg-[#FFA0A0]/20", shadow: "shadow-[#FFA0A0]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-facebook", initialX: "10%", initialY: "34%", size: "w-11 h-11", delay: 0.5, color: "#BAA0FF", bg: "bg-[#BAA0FF]/20", shadow: "shadow-[#BAA0FF]/20" },
-    { type: "app", icon: "R", initialX: "3%", initialY: "42%", size: "w-14 h-14", delay: 0.6, color: "#FFC5A0", bg: "bg-[#FFC5A0]/20", shadow: "shadow-[#FFC5A0]/20" },
-    { src: "/images/sc1.png", initialX: "8%", initialY: "50%", size: "w-16 h-16", delay: 0.7, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
+    { src: "/images/sc3.png", initialX: "3%", initialY: "42%", size: "w-14 h-14", delay: 0.6, color: "#FFC5A0", bg: "bg-[#FFC5A0]/20", shadow: "shadow-[#FFC5A0]/20", alt: "Club logo" },
+    { src: "/images/sc4.png", initialX: "8%", initialY: "50%", size: "w-16 h-16", delay: 0.7, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-linkedin", initialX: "12%", initialY: "58%", size: "w-12 h-12", delay: 0.8, color: "#FFE9A0", bg: "bg-[#FFE9A0]/20", shadow: "shadow-[#FFE9A0]/20" },
-    { type: "app", icon: "D", initialX: "4%", initialY: "66%", size: "w-15 h-15", delay: 0.9, color: "#A0DFFF", bg: "bg-[#A0DFFF]/20", shadow: "shadow-[#A0DFFF]/20" },
+    { src: "/images/sc5.png", initialX: "4%", initialY: "66%", size: "w-15 h-15", delay: 0.9, color: "#A0DFFF", bg: "bg-[#A0DFFF]/20", shadow: "shadow-[#A0DFFF]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-youtube", initialX: "9%", initialY: "74%", size: "w-13 h-13", delay: 1.0, color: "#FFA0A0", bg: "bg-[#FFA0A0]/20", shadow: "shadow-[#FFA0A0]/20" },
-    { type: "app", icon: "P", initialX: "3%", initialY: "82%", size: "w-14 h-14", delay: 1.1, color: "#BAA0FF", bg: "bg-[#BAA0FF]/20", shadow: "shadow-[#BAA0FF]/20" },
-    { src: "/images/sc3.png", initialX: "11%", initialY: "90%", size: "w-16 h-16", delay: 1.2, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
+    { src: "/images/sc6.jpg", initialX: "3%", initialY: "82%", size: "w-14 h-14", delay: 1.1, color: "#BAA0FF", bg: "bg-[#BAA0FF]/20", shadow: "shadow-[#BAA0FF]/20", alt: "Club logo" },
+    { src: "/images/sc1.png", initialX: "11%", initialY: "90%", size: "w-16 h-16", delay: 1.2, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
 
     // Additional left side elements in different columns
-    { type: "app", icon: "F", initialX: "15%", initialY: "15%", size: "w-13 h-13", delay: 0.3, color: "#FFC5A0", bg: "bg-[#FFC5A0]/20", shadow: "shadow-[#FFC5A0]/20" },
+    { src: "/images/sc2.png", initialX: "15%", initialY: "15%", size: "w-13 h-13", delay: 0.3, color: "#FFC5A0", bg: "bg-[#FFC5A0]/20", shadow: "shadow-[#FFC5A0]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-discord", initialX: "18%", initialY: "28%", size: "w-12 h-12", delay: 0.5, color: "#A0DFFF", bg: "bg-[#A0DFFF]/20", shadow: "shadow-[#A0DFFF]/20" },
-    { type: "app", icon: "W", initialX: "16%", initialY: "42%", size: "w-14 h-14", delay: 0.7, color: "#E1A0FF", bg: "bg-[#E1A0FF]/20", shadow: "shadow-[#E1A0FF]/20" },
-    { src: "/images/sc5.png", initialX: "17%", initialY: "56%", size: "w-15 h-15", delay: 0.9, color: "#FFE9A0", bg: "bg-[#FFE9A0]/20", shadow: "shadow-[#FFE9A0]/20", alt: "Club logo" },
+    { src: "/images/sc3.png", initialX: "16%", initialY: "42%", size: "w-14 h-14", delay: 0.7, color: "#E1A0FF", bg: "bg-[#E1A0FF]/20", shadow: "shadow-[#E1A0FF]/20", alt: "Club logo" },
+    { src: "/images/sc4.png", initialX: "17%", initialY: "56%", size: "w-15 h-15", delay: 0.9, color: "#FFE9A0", bg: "bg-[#FFE9A0]/20", shadow: "shadow-[#FFE9A0]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-github", initialX: "15%", initialY: "70%", size: "w-12 h-12", delay: 1.1, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20" },
-    { type: "app", icon: "J", initialX: "18%", initialY: "84%", size: "w-13 h-13", delay: 1.3, color: "#FFA0A0", bg: "bg-[#FFA0A0]/20", shadow: "shadow-[#FFA0A0]/20" },
+    { src: "/images/sc5.png", initialX: "18%", initialY: "84%", size: "w-13 h-13", delay: 1.3, color: "#FFA0A0", bg: "bg-[#FFA0A0]/20", shadow: "shadow-[#FFA0A0]/20", alt: "Club logo" },
 
     // Right side elements - dense vertical distribution
-    { type: "app", icon: "G", initialX: "92%", initialY: "10%", size: "w-15 h-15", delay: 0.3, color: "#FFE9A0", bg: "bg-[#FFE9A0]/20", shadow: "shadow-[#FFE9A0]/20" },
+    { src: "/images/sc6.jpg", initialX: "92%", initialY: "10%", size: "w-15 h-15", delay: 0.3, color: "#FFE9A0", bg: "bg-[#FFE9A0]/20", shadow: "shadow-[#FFE9A0]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-twitter", initialX: "88%", initialY: "18%", size: "w-12 h-12", delay: 0.4, color: "#A0DFFF", bg: "bg-[#A0DFFF]/20", shadow: "shadow-[#A0DFFF]/20" },
-    { type: "app", icon: "T", initialX: "94%", initialY: "26%", size: "w-14 h-14", delay: 0.5, color: "#FFC5A0", bg: "bg-[#FFC5A0]/20", shadow: "shadow-[#FFC5A0]/20" },
+    { src: "/images/sc1.png", initialX: "94%", initialY: "26%", size: "w-14 h-14", delay: 0.5, color: "#FFC5A0", bg: "bg-[#FFC5A0]/20", shadow: "shadow-[#FFC5A0]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-slack", initialX: "87%", initialY: "34%", size: "w-13 h-13", delay: 0.6, color: "#BAA0FF", bg: "bg-[#BAA0FF]/20", shadow: "shadow-[#BAA0FF]/20" },
-    { type: "app", icon: "S", initialX: "93%", initialY: "42%", size: "w-15 h-15", delay: 0.7, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20" },
-    { src: "/images/sc2.png", initialX: "89%", initialY: "50%", size: "w-16 h-16", delay: 0.8, color: "#BAA0FF", bg: "bg-[#BAA0FF]/20", shadow: "shadow-[#BAA0FF]/20", alt: "Club logo" },
+    { src: "/images/sc2.png", initialX: "93%", initialY: "42%", size: "w-15 h-15", delay: 0.7, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
+    { src: "/images/sc3.png", initialX: "89%", initialY: "50%", size: "w-16 h-16", delay: 0.8, color: "#BAA0FF", bg: "bg-[#BAA0FF]/20", shadow: "shadow-[#BAA0FF]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-dribbble", initialX: "86%", initialY: "58%", size: "w-12 h-12", delay: 0.9, color: "#E1A0FF", bg: "bg-[#E1A0FF]/20", shadow: "shadow-[#E1A0FF]/20" },
-    { type: "app", icon: "V", initialX: "95%", initialY: "66%", size: "w-14 h-14", delay: 1.0, color: "#A0DFFF", bg: "bg-[#A0DFFF]/20", shadow: "shadow-[#A0DFFF]/20" },
+    { src: "/images/sc4.png", initialX: "95%", initialY: "66%", size: "w-14 h-14", delay: 1.0, color: "#A0DFFF", bg: "bg-[#A0DFFF]/20", shadow: "shadow-[#A0DFFF]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-behance", initialX: "88%", initialY: "74%", size: "w-13 h-13", delay: 1.1, color: "#FFC5A0", bg: "bg-[#FFC5A0]/20", shadow: "shadow-[#FFC5A0]/20" },
-    { type: "app", icon: "Z", initialX: "93%", initialY: "82%", size: "w-15 h-15", delay: 1.2, color: "#FFE9A0", bg: "bg-[#FFE9A0]/20", shadow: "shadow-[#FFE9A0]/20" },
-    { src: "/images/sc4.png", initialX: "87%", initialY: "90%", size: "w-16 h-16", delay: 1.3, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
+    { src: "/images/sc5.png", initialX: "93%", initialY: "82%", size: "w-15 h-15", delay: 1.2, color: "#FFE9A0", bg: "bg-[#FFE9A0]/20", shadow: "shadow-[#FFE9A0]/20", alt: "Club logo" },
+    { src: "/images/sc6.jpg", initialX: "87%", initialY: "90%", size: "w-16 h-16", delay: 1.3, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
 
     // Additional right side elements in different columns
-    { type: "app", icon: "K", initialX: "82%", initialY: "15%", size: "w-14 h-14", delay: 0.4, color: "#FFA0A0", bg: "bg-[#FFA0A0]/20", shadow: "shadow-[#FFA0A0]/20" },
+    { src: "/images/sc1.png", initialX: "82%", initialY: "15%", size: "w-14 h-14", delay: 0.4, color: "#FFA0A0", bg: "bg-[#FFA0A0]/20", shadow: "shadow-[#FFA0A0]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-figma", initialX: "80%", initialY: "28%", size: "w-12 h-12", delay: 0.6, color: "#BAA0FF", bg: "bg-[#BAA0FF]/20", shadow: "shadow-[#BAA0FF]/20" },
-    { type: "app", icon: "N", initialX: "83%", initialY: "42%", size: "w-13 h-13", delay: 0.8, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20" },
-    { src: "/images/sc6.jpg", initialX: "79%", initialY: "56%", size: "w-15 h-15", delay: 1.0, color: "#FFC5A0", bg: "bg-[#FFC5A0]/20", shadow: "shadow-[#FFC5A0]/20", alt: "Club logo" },
+    { src: "/images/sc2.png", initialX: "83%", initialY: "42%", size: "w-13 h-13", delay: 0.8, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
+    { src: "/images/sc3.png", initialX: "79%", initialY: "56%", size: "w-15 h-15", delay: 1.0, color: "#FFC5A0", bg: "bg-[#FFC5A0]/20", shadow: "shadow-[#FFC5A0]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-spotify", initialX: "81%", initialY: "70%", size: "w-12 h-12", delay: 1.2, color: "#A0DFFF", bg: "bg-[#A0DFFF]/20", shadow: "shadow-[#A0DFFF]/20" },
-    { type: "app", icon: "E", initialX: "78%", initialY: "84%", size: "w-14 h-14", delay: 1.4, color: "#E1A0FF", bg: "bg-[#E1A0FF]/20", shadow: "shadow-[#E1A0FF]/20" },
+    { src: "/images/sc4.png", initialX: "78%", initialY: "84%", size: "w-14 h-14", delay: 1.4, color: "#E1A0FF", bg: "bg-[#E1A0FF]/20", shadow: "shadow-[#E1A0FF]/20", alt: "Club logo" },
 ];
 
 // Feature tags
@@ -55,6 +58,15 @@ const featureTags = [
 function Hero() {
     const [logoLoaded, setLogoLoaded] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [isNavigating, setIsNavigating] = useState(false);
+    const navigate = useNavigate();
+
+    const handleScrollDown = () => {
+        const scrollTarget = document.getElementById('scroll-down');
+        if (scrollTarget) {
+            scrollTarget.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     // Check for mobile viewport
     useEffect(() => {
@@ -83,7 +95,7 @@ function Hero() {
                 element.style.opacity = '0';
                 element.style.transform = 'translate(0px, 0px) rotate(0deg)';
 
-                // Fade in animation
+                // Fade in animations
                 element.animate([
                     { opacity: 0, transform: 'translate(0px, 0px) rotate(0deg)' },
                     { opacity: 1, transform: 'translate(0px, 0px) rotate(0deg)' }
@@ -93,9 +105,9 @@ function Hero() {
                     fill: 'forwards'
                 });
 
-                // Smooth floating animation
+                // Smooth floating animations
                 const animateFloat = () => {
-                    // Smoother movement ranges
+                    // Smoother movement range
                     const moveX = Math.random() * 25 - 12.5; // -12.5px to +12.5px
                     const moveY = Math.random() * 25 - 12.5; // -12.5px to +12.5px
                     const rotateAmount = (Math.random() - 0.5) * 4; // -2deg to +2deg
@@ -121,7 +133,7 @@ function Hero() {
                     });
 
                     animation.onfinish = () => {
-                        // Smooth transition to next animation
+                        // Smooth transition to next animations
                         const nextDelay = Math.random() * 500;
                         setTimeout(animateFloat, nextDelay);
                     };
@@ -143,6 +155,7 @@ function Hero() {
             </div>
 
             {/* Dense left and right floating elements - hidden on mobile */}
+            
             <div className="absolute inset-0 pointer-events-none hidden md:block">
                 {floatingElements.map((item, index) => {
                     if (item.type === "social") {
@@ -272,6 +285,7 @@ function Hero() {
                             <span>Eventix</span>
                         ) : (
                             // Animated text for desktop
+                            
                             <>
                                 <motion.span className="inline-block" initial={{ y: 50 }} animate={{ y: 0 }} transition={{ type: "spring", damping: 12, stiffness: 100, delay: 0.5 }}>E</motion.span>
                                 <motion.span className="inline-block" initial={{ y: 50 }} animate={{ y: 0 }} transition={{ type: "spring", damping: 12, stiffness: 100, delay: 0.6 }}>v</motion.span>
@@ -327,13 +341,18 @@ function Hero() {
 
                     {/* Button */}
                     <button
-                        className="mt-6 px-8 py-3 bg-black text-white rounded-full text-lg font-medium backdrop-blur-sm border border-white/20 transition-all duration-300 hover:bg-white/10"
+                        onClick={handleScrollDown}
+                        className="mt-6 px-8 py-3 bg-black text-white rounded-full text-lg font-medium backdrop-blur-sm border border-white/20 transition-all duration-300 hover:bg-white/10 flex items-center gap-2"
                         style={{ boxShadow: '0 4px 16px -4px rgba(255, 255, 255, 0.2)' }}
                     >
-                        Explore Events
+                        Scroll Down
+                        <FontAwesomeIcon icon={faMouse} className="text-md" />
                     </button>
                 </div>
             </div>
+
+            {/* Scroll target */}
+            <div id="scroll-down" className="absolute bottom-0 w-full h-1"></div>
         </div>
     );
 }

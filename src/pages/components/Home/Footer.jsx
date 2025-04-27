@@ -1,13 +1,10 @@
-import { motion } from "framer-motion";
 import { useState } from "react";
-
+import { motion } from "framer-motion";
 
 const Footer = () => {
     const [email, setEmail] = useState('');
 
-
-    
-    // Animation variant
+    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -147,7 +144,7 @@ const Footer = () => {
 
                             {/* Instagram */}
                             <motion.a
-                                href="#"
+                                href="https://www.instagram.com/prathammittall"
                                 className="bg-white/5 hover:bg-white/10 p-3 rounded-full border border-white/10 text-white hover:text-[#BAA0FF] transition-all"
                                 variants={socialIconVariants}
                                 whileHover="hover"
@@ -173,7 +170,7 @@ const Footer = () => {
 
                             {/* LinkedIn */}
                             <motion.a
-                                href="#"
+                                href="https://www.linkedin.com/in/pratham-mittall/"
                                 className="bg-white/5 hover:bg-white/10 p-3 rounded-full border border-white/10 text-white hover:text-[#A0DFFF] transition-all"
                                 variants={socialIconVariants}
                                 whileHover="hover"
