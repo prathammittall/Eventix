@@ -12,6 +12,7 @@ const navItems = [
         icon: <FaHome />,
         sectionId: 'hero-section'
     },
+    
     { 
         id: 'events', 
         label: 'Events', 
