@@ -30,7 +30,7 @@ const Explore = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
+    // Simulate  loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
