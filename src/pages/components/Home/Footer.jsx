@@ -5,9 +5,7 @@ import { useState } from "react";
 const Footer = () => {
     const [email, setEmail] = useState('');
 
-
-    
-    // Animation variant
+    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
