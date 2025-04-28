@@ -43,7 +43,8 @@ const clubsData = [
     description: "Creating innovative games and interactive experiences",
     members: 110,
     logo: "/images/sc6.jpg",
-    color: "#E1A0FF" // Pastel lavender
+    color: "#E1A0FF" 
+    // Pastel lavender
   }
 ];
 

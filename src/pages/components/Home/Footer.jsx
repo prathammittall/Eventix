@@ -184,6 +184,7 @@ const Footer = () => {
                     </motion.div>
 
                     {/* Subscribe Section */}
+                    
                     <motion.div 
                         className="md:col-span-7"
                         variants={itemVariants}

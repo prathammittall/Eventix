@@ -31,7 +31,7 @@ function Cards(props) {
                     </span>
                 </div>
                 
-                {/* Title overlay at bottom of the images */}
+                {/* Title overlay at bottom of the image */}
                 <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
                     <h1 className="text-xl font-bold text-white">{props.hackName}</h1>
                 </div>
