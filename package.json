@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@gsap/react": "^2.1.2",
     "@splinetool/react-spline": "^4.0.0",
     "@tabler/icons-react": "^3.31.0",
@@ -17,7 +21,7 @@
     "@tsparticles/react": "^3.0.0",
     "aos": "^2.3.4",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.6.3",
+    "framer-motion": "^12.9.2",
     "gsap": "^3.12.7",
     "lucide-react": "^0.487.0",
     "motion": "^12.4.10",

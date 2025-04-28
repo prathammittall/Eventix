@@ -15,7 +15,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+##  🛠️ Tech Stack
 
 | Frontend | Backend | Database | Other |
 |---------|---------|----------|-------|
