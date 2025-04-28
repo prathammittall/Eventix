@@ -216,7 +216,7 @@ function Hero() {
                 })}
             </div>
 
-            {/* Mobile-specific static decorations - extremely simplified */}
+            {/* Mobile-specific static decoration - extremely simplified */}
             {isMobile && (
                 <>
                     <div className="absolute w-10 h-10 top-28 left-4 opacity-30">
