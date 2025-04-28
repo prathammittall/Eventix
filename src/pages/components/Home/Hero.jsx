@@ -105,7 +105,7 @@ function Hero() {
                     fill: 'forwards'
                 });
 
-                // Smooth floating animations
+                // Smooth floating animation
                 const animateFloat = () => {
                     // Smoother movement range
                     const moveX = Math.random() * 25 - 12.5; // -12.5px to +12.5px
@@ -147,7 +147,7 @@ function Hero() {
 
     return (
         <div id="hero-section" className='w-full h-screen bg-black overflow-hidden relative flex flex-col justify-center pt-20'>
-            {/* Subtle background gradients */}
+            {/* Subtle background gradient */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-[#A0FFD6]/10 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-[#BAA0FF]/10 rounded-full blur-3xl"></div>
