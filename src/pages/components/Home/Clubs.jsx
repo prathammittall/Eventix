@@ -64,7 +64,7 @@ function Clubs() {
             Join vibrant university communities and pursue your passions with like-minded peers
           </p>
         </motion.div>
-        
+  
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
           {clubsData.map((club, index) => (
             <motion.div 
