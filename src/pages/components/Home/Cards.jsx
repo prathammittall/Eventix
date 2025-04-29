@@ -19,7 +19,7 @@ function Cards(props) {
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-black/50 to-transparent opacity-70"></div>
                 
-                {/* Status badge with pastel accent color */}
+                {/* Status badge with pastel accent colors */}
                 <div className="absolute top-4 right-4 flex gap-2">
                     <span className={`px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm border ${
                         props.status === 'Upcoming' ? 'bg-amber-200/70 text-amber-950 border-amber-300/50' : 
@@ -31,7 +31,7 @@ function Cards(props) {
                     </span>
                 </div>
                 
-                {/* Title overlay at bottom of image */}
+                {/* Title overlay at bottom of the image */}
                 <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
                     <h1 className="text-xl font-bold text-white">{props.hackName}</h1>
                 </div>
