@@ -113,10 +113,10 @@ function Hero() {
                     const moveY = Math.random() * 25 - 12.5; // -12.5px to +12.5px
                     const rotateAmount = (Math.random() - 0.5) * 4; // -2deg to +2deg
 
-                    // Longer duration for smoother movement
+                    // Longer duration for the smoother movement
                     const duration = 15000 + Math.random() * 5000; // 15-20 seconds
 
-                    // More keyframes for smoother motion
+                    // More keyframes for the smoother motion
                     const keyframes = [
                         { transform: `translate(0px, 0px) rotate(0deg)`, offset: 0 },
                         { transform: `translate(${moveX * 0.2}px, ${moveY * 0.2}px) rotate(${rotateAmount * 0.2}deg)`, offset: 0.2 },
@@ -134,13 +134,13 @@ function Hero() {
                     });
 
                     animation.onfinish = () => {
-                        // Smooth transition to next animations
+                        // Smooth transition to the next animations
                         const nextDelay = Math.random() * 500;
                         setTimeout(animateFloat, nextDelay);
                     };
                 };
 
-                // Start floating animation after fade-in
+                // Start floating animation after the fade-in
                 setTimeout(animateFloat, 1000);
             });
         }
