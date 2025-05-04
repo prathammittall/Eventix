@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+
 const clubsData = [
   // Club card Informations.
   {
@@ -47,7 +48,6 @@ const clubsData = [
     // Pastel lavender
   }
 ];
-
 
 function Clubs() {
   return (
