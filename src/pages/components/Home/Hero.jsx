@@ -68,6 +68,7 @@ function Hero() {
         }
     };
 
+    
     // Check for mobile viewport
     useEffect(() => {
         const checkMobile = () => {
