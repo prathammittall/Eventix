@@ -31,7 +31,7 @@ const Explore = () => {
 
   useEffect(() => {
     // Simulate  loading time
-    
+
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -51,6 +51,7 @@ const Explore = () => {
       }}
     >
       {/* Gradient patche */}
+      
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
