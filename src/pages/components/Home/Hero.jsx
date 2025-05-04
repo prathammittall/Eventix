@@ -5,9 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMouse } from '@fortawesome/free-solid-svg-icons';
 
 // Dense arrangement of floating elements on left and right side.
+
 const floatingElements = [
     // Left side elements - dense vertical distributions
-    
+
     { src: "/images/sc1.png", initialX: "5%", initialY: "10%", size: "w-14 h-14", delay: 0.2, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-instagram", initialX: "9%", initialY: "18%", size: "w-12 h-12", delay: 0.3, color: "#E1A0FF", bg: "bg-[#E1A0FF]/20", shadow: "shadow-[#E1A0FF]/20" },
     { src: "/images/sc2.png", initialX: "4%", initialY: "26%", size: "w-13 h-13", delay: 0.4, color: "#FFA0A0", bg: "bg-[#FFA0A0]/20", shadow: "shadow-[#FFA0A0]/20", alt: "Club logo" },
