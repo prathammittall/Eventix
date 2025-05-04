@@ -61,6 +61,7 @@ const Explore = () => {
         }}
       ></div>
 
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.h2
           className="text-5xl font-extrabold text-center mb-14"
