@@ -30,7 +30,7 @@ function App() {
             once: true
         });
 
-        // Simulate loading time
+        // Simulate the loading time
         const timer = setTimeout(() => {
             setIsLoading(false);
         }, 2000);
@@ -38,6 +38,7 @@ function App() {
         return () => clearTimeout(timer);
     }, []);
 
+    
     const handleAllEventsClick = () => {
         setIsLoading(true);
         setShowAllEvents(true);
