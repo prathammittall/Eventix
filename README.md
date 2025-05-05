@@ -1,6 +1,6 @@
 # 🎉 Eventix
 
-**Eventix** is your one-stop platform for staying updated with all college events, hackathons, interviews, and club activities. Built using the **MERN stack**, Eventix is designed to help students discover and track opportunities based on their interests, clubs, and more.
+**Eventix** is your one-stop platform for staying updated with all college events, hackathons, interviews, and club activities. Built using the **MERN stack**, Eventix is designed to help students discover and track opportunities based on their interests, clubs, and more .
 
 ---
 
