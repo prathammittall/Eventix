@@ -9,7 +9,6 @@ import About from './pages/components/Home/About';
 import Contact from './pages/components/Home/Contact';
 import Footer from './pages/components/Home/Footer';
 import AllEvents from './pages/components/AllEvents/Events';
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -31,6 +30,7 @@ function App() {
         });
 
         // Simulate the loading time
+
         const timer = setTimeout(() => {
             setIsLoading(false);
         }, 2000);
@@ -83,6 +83,7 @@ function App() {
                     </>
                 )}
             </div>
+
         </BrowserRouter>
     );
 }
