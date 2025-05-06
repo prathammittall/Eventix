@@ -9,6 +9,9 @@ import About from './pages/components/Home/About';
 import Contact from './pages/components/Home/Contact';
 import Footer from './pages/components/Home/Footer';
 import AllEvents from './pages/components/AllEvents/Events';
+import Login from './pages/components/Auth/Login';
+import Register from './pages/components/Auth/Register';
+import Dashboard from './pages/components/Dashboard/Dashboard';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -77,6 +80,9 @@ function App() {
                                     </>
                                 } />
                                 <Route path="/all-events" element={<AllEvents />} />
+                                <Route path="/login" element={<Login />} />
+                                <Route path="/register" element={<Register />} />
+                                <Route path="/dashboard" element={<Dashboard />} />
                             </Routes>
                         </div>
                     </>
