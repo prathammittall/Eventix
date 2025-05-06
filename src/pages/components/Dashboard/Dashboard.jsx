@@ -7,7 +7,7 @@ import { FaCalendarAlt, FaUsers, FaTicketAlt, FaCalendarCheck, FaHome, FaUserEdi
 const Dashboard = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
-
+    
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             if (!user) {
