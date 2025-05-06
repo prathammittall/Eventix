@@ -194,6 +194,7 @@ function Events() {
           </div>
 
           {/* Filter Options */}
+          
           <motion.div 
             className="flex flex-wrap items-center justify-center gap-3 mb-8"
             initial={{ opacity: 0, y: 20 }}
