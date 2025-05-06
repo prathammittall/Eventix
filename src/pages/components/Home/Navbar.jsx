@@ -1,9 +1,12 @@
 //Navbar.jsx
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaHome, FaCalendarAlt, FaUsers } from 'react-icons/fa';
 import { IoIosInformationCircle } from 'react-icons/io';
 import { BsChatSquareDots } from 'react-icons/bs';
+import { auth } from '../../../firebase';
+import { signOut } from 'firebase/auth';
 
 const navItems = [
     { 
@@ -14,7 +17,7 @@ const navItems = [
     },
     
     { 
-        id: 'events', 
+        id: 'events',
         label: 'Events', 
         icon: <FaCalendarAlt />,
         sectionId: 'events-section'
@@ -39,143 +42,212 @@ const navItems = [
     }
 ];
 
-export default function Navbar() {
+const Navbar = () => {
     const [activeSection, setActiveSection] = useState('home');
-    const [scrolledDown, setScrolledDown] = useState(false);
-    const navRef = useRef(null);
-    const isScrolling = useRef(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [user, setUser] = useState(null);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
-            // Check if scrolled down for navbar background transparency
-            
-            const scrollY = window.scrollY;
-            setScrolledDown(scrollY > 20);
-            
-            // Skip section detection if programmatic scrolling is in progress
-            if (isScrolling.current) return;
-            
-            // Simplified section detection logic
-            const currentPosition = window.scrollY + 100; // Adding offset to account for navbar height
-            
-            // Check each section in reverse to catch the topmost visible section first
-            // This helps ensure top sections (like Home) get priority when they're visible
-            for (let i = navItems.length - 1; i >= 0; i--) {
-                const item = navItems[i];
-                const section = document.getElementById(item.sectionId);
-                
-                if (!section) continue;
-                
-                // Get section boundaries
-                const sectionTop = section.offsetTop;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                
-                // Special case for the first section (Home/Hero)
-                if (i === 0) {
-                    if (currentPosition <= sectionBottom) {
-                        setActiveSection(item.id);
-                        return;
-                    }
-                } 
-                // For all other sections
-                else if (currentPosition >= sectionTop && currentPosition <= sectionBottom) {
-                    setActiveSection(item.id);
-                    return;
-                }
+            setIsScrolled(window.scrollY > 0);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            console.log('Auth State Changed - User:', user);
+            if (user) {
+                console.log('User Profile Data:', {
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                    providerData: user.providerData
+                });
+            }
+            setUser(user);
+        });
+        return () => unsubscribe();
+    }, []);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
             }
         };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll(); // Initialize on mount
-        
+        document.addEventListener('mousedown', handleClickOutside);
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []); // Removed activeSection dependency to avoid circular updates
+    }, []);
 
-    const scrollToSection = (item) => {
-        const section = document.getElementById(item.sectionId);
-        if (section) {
-            // Flag to prevent detection during programmatic scroll
-            isScrolling.current = true;
-            
-            // Calculate offset with navbar height
-            const navHeight = navRef.current?.offsetHeight || 0;
-            const sectionTop = section.offsetTop - navHeight - 16;
-            
-            // Update active state immediately
-            setActiveSection(item.id);
-            
+    const handleSignOut = async () => {
+        try {
+            await signOut(auth);
+            setIsDropdownOpen(false);
+        } catch (error) {
+            console.error('Error signing out:', error);
+        }
+    };
+
+    const handleSmoothScroll = (e, targetId) => {
+        e.preventDefault();
+        const element = document.getElementById(targetId);
+        if (element) {
+            const offset = element.offsetTop - 100; // Subtract header height + some padding
             window.scrollTo({
-                top: sectionTop,
+                top: offset,
                 behavior: 'smooth'
             });
-            
-            // Reset scrolling flag after animation completes
-            setTimeout(() => {
-                isScrolling.current = false;
-            }, 1000);
         }
     };
 
     return (
-        <motion.nav 
-            ref={navRef}
-            className="fixed z-50 top-0 left-0 right-0 flex justify-center py-4"
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+        <motion.nav
+            className={`fixed w-full z-50 transition-all duration-300 ${
+                isScrolled ? 'bg-black/80 backdrop-blur-md py-4' : 'bg-transparent py-6'
+            }`}
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <div 
-                className={`flex items-center gap-1 px-4 sm:px-6 py-2 rounded-full transition-all duration-300 ${
-                    scrolledDown 
-                        ? 'bg-black/80 backdrop-blur-md border border-white/10 shadow-lg' 
-                        : 'bg-black/30 backdrop-blur-sm border border-white/5'
-                }`}
-            >
-                {navItems.map((item) => {
-                    const isActive = activeSection === item.id;
-                    
-                    return (
-                        <motion.button
-                            key={item.id}
-                            onClick={() => scrollToSection(item)}
-                            className="relative flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-full text-sm font-medium z-10"
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center">
+                        <Link to="/" className="text-white text-2xl font-bold">
+                            Eventix
+                        </Link>
+                    </div>
+
+                    <div className="hidden md:flex items-center space-x-8">
+                        <a 
+                            href="#events-section" 
+                            onClick={(e) => handleSmoothScroll(e, 'events-section')}
+                            className="text-gray-300 hover:text-white transition-colors cursor-pointer"
                         >
-                            {/* Active background indicator */}
-                            {isActive && (
-                                <motion.div 
-                                    layoutId="activeNavBackground"
-                                    className="absolute inset-0 rounded-full bg-white"
-                                    transition={{ 
-                                        type: "spring", 
-                                        stiffness: 500, 
-                                        damping: 30
-                                    }}
-                                />
-                            )}
-                            
-                            {/* Icon */}
-                            <span 
-                                className={`text-lg z-10 relative ${
-                                    isActive ? 'text-black scale-105' : 'text-gray-400'
-                                }`}
-                            >
-                                {item.icon}
-                            </span>
-                            
-                            {/* Label - only on larger screens */}
-                            <span
-                                className={`relative z-10 hidden sm:inline-block ${
-                                    isActive ? 'text-black font-semibold' : 'text-gray-400'
-                                }`}
-                            >
-                                {item.label}
-                            </span>
-                        </motion.button>
-                    );
-                })}
+                            Events
+                        </a>
+                        <a 
+                            href="#clubs-section"
+                            onClick={(e) => handleSmoothScroll(e, 'clubs-section')}
+                            className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+                        >
+                            Clubs
+                        </a>
+                        <a 
+                            href="#about-section"
+                            onClick={(e) => handleSmoothScroll(e, 'about-section')}
+                            className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+                        >
+                            About
+                        </a>
+                        <a 
+                            href="#contact-section"
+                            onClick={(e) => handleSmoothScroll(e, 'contact-section')}
+                            className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+                        >
+                            Contact
+                        </a>
+                    </div>
+
+                    {/* Auth Buttons */}
+                    <div className="flex items-center space-x-4">
+                        {user ? (
+                            <div className="relative" ref={dropdownRef}>
+                                <motion.button
+                                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="flex items-center space-x-2 px-4 py-2 text-white hover:text-gray-300 transition-colors"
+                                >
+                                    {user.photoURL ? (
+                                        <img 
+                                            src={user.photoURL} 
+                                            alt={user.displayName || 'User'} 
+                                            className="w-8 h-8 rounded-full object-cover border-2 border-white/20"
+                                            onError={(e) => {
+                                                console.error('Error loading profile image:', e);
+                                                e.target.style.display = 'none';
+                                            }}
+                                        />
+                                    ) : (
+                                        <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
+                                            <span className="text-sm font-medium">
+                                                {user.displayName ? user.displayName[0].toUpperCase() : user.email[0].toUpperCase()}
+                                            </span>
+                                        </div>
+                                    )}
+                                    <span className="hidden md:inline">{user.displayName || user.email}</span>
+                                    <svg
+                                        className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </motion.button>
+
+                                {isDropdownOpen && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -10 }}
+                                        className="absolute right-0 mt-2 w-48 bg-[#1a1a1a] rounded-lg shadow-lg border border-gray-700 overflow-hidden z-50"
+                                    >
+                                        <div className="py-2">
+                                            <div className="px-4 py-2 text-sm text-gray-400 border-b border-gray-700">
+                                                {user.displayName || user.email}
+                                            </div>
+                                            <Link to="/dashboard">
+                                                <button
+                                                    className="w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800 transition-colors"
+                                                >
+                                                    Dashboard
+                                                </button>
+                                            </Link>
+                                            <button
+                                                onClick={handleSignOut}
+                                                className="w-full text-left px-4 py-2 text-sm text-white hover:bg-gray-800 transition-colors"
+                                            >
+                                                Sign Out
+                                            </button>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </div>
+                        ) : (
+                            <>
+                                <Link to="/login">
+                                    <motion.button
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="px-4 py-2 text-white hover:text-gray-300 transition-colors"
+                                    >
+                                        Login
+                                    </motion.button>
+                                </Link>
+                                <Link to="/register">
+                                    <motion.button
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="px-4 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition-colors"
+                                    >
+                                        Sign Up
+                                    </motion.button>
+                                </Link>
+                            </>
+                        )}
+                    </div>
+                </div>
             </div>
         </motion.nav>
     );
-}
+};
+
+export default Navbar;
