@@ -49,6 +49,7 @@ function Loader() {
         </motion.div>
 
         {/* Loading text */}
+        
         <motion.div
           className="mt-6 text-center"
           initial={{ opacity: 0 }}

@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+
 const clubsData = [
-  // Club card Information
+  // Club card Informations.
   {
     name: "CodeTech Club",
     description: "Programming and software development club for tech enthusiasts",
@@ -43,10 +44,10 @@ const clubsData = [
     description: "Creating innovative games and interactive experiences",
     members: 110,
     logo: "/images/sc6.jpg",
-    color: "#E1A0FF" // Pastel lavender
+    color: "#E1A0FF" 
+    // Pastel lavender
   }
 ];
-
 
 function Clubs() {
   return (
@@ -64,7 +65,8 @@ function Clubs() {
             Join vibrant university communities and pursue your passions with like-minded peers
           </p>
         </motion.div>
-        
+  
+  
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
           {clubsData.map((club, index) => (
             <motion.div 

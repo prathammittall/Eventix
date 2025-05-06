@@ -5,8 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMouse } from '@fortawesome/free-solid-svg-icons';
 
 // Dense arrangement of floating elements on left and right side.
+
 const floatingElements = [
     // Left side elements - dense vertical distributions
+
     { src: "/images/sc1.png", initialX: "5%", initialY: "10%", size: "w-14 h-14", delay: 0.2, color: "#A0FFD6", bg: "bg-[#A0FFD6]/20", shadow: "shadow-[#A0FFD6]/20", alt: "Club logo" },
     { type: "social", icon: "fab fa-instagram", initialX: "9%", initialY: "18%", size: "w-12 h-12", delay: 0.3, color: "#E1A0FF", bg: "bg-[#E1A0FF]/20", shadow: "shadow-[#E1A0FF]/20" },
     { src: "/images/sc2.png", initialX: "4%", initialY: "26%", size: "w-13 h-13", delay: 0.4, color: "#FFA0A0", bg: "bg-[#FFA0A0]/20", shadow: "shadow-[#FFA0A0]/20", alt: "Club logo" },
@@ -68,13 +70,14 @@ function Hero() {
         }
     };
 
+    
     // Check for mobile viewport
     useEffect(() => {
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 768); // Consider mobile if less than md breakpoint
         };
 
-
+        
         // Initial check
         checkMobile();
 
@@ -105,17 +108,17 @@ function Hero() {
                     fill: 'forwards'
                 });
 
-                // Smooth floating animations
+                // Smooth floating animation
                 const animateFloat = () => {
                     // Smoother movement range
                     const moveX = Math.random() * 25 - 12.5; // -12.5px to +12.5px
                     const moveY = Math.random() * 25 - 12.5; // -12.5px to +12.5px
                     const rotateAmount = (Math.random() - 0.5) * 4; // -2deg to +2deg
 
-                    // Longer duration for smoother movement
+                    // Longer duration for the smoother movement
                     const duration = 15000 + Math.random() * 5000; // 15-20 seconds
 
-                    // More keyframes for smoother motion
+                    // More keyframes for the smoother motion
                     const keyframes = [
                         { transform: `translate(0px, 0px) rotate(0deg)`, offset: 0 },
                         { transform: `translate(${moveX * 0.2}px, ${moveY * 0.2}px) rotate(${rotateAmount * 0.2}deg)`, offset: 0.2 },
@@ -133,13 +136,13 @@ function Hero() {
                     });
 
                     animation.onfinish = () => {
-                        // Smooth transition to next animations
+                        // Smooth transition to the next animations
                         const nextDelay = Math.random() * 500;
                         setTimeout(animateFloat, nextDelay);
                     };
                 };
 
-                // Start floating animation after fade-in
+                // Start floating animation after the fade-in
                 setTimeout(animateFloat, 1000);
             });
         }
@@ -147,7 +150,7 @@ function Hero() {
 
     return (
         <div id="hero-section" className='w-full h-screen bg-black overflow-hidden relative flex flex-col justify-center pt-20'>
-            {/* Subtle background gradients */}
+            {/* Subtle background gradient */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-[#A0FFD6]/10 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-[#BAA0FF]/10 rounded-full blur-3xl"></div>
@@ -216,7 +219,7 @@ function Hero() {
                 })}
             </div>
 
-            {/* Mobile-specific static decorations - extremely simplified */}
+            {/* Mobile-specific static decoration - extremely simplified */}
             {isMobile && (
                 <>
                     <div className="absolute w-10 h-10 top-28 left-4 opacity-30">

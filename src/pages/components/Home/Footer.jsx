@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Footer = () => {
     const [email, setEmail] = useState('');
 
-    // Animation variant
+    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -16,6 +16,7 @@ const Footer = () => {
         }
     };
 
+    
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -75,7 +76,7 @@ const Footer = () => {
                 }}
             />
 
-            {/* Decorative elements */}
+            {/* Decorative element */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <motion.div 
                     className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#A0FFD6]/5 rounded-full blur-3xl"
@@ -184,6 +185,7 @@ const Footer = () => {
                     </motion.div>
 
                     {/* Subscribe Section */}
+                    
                     <motion.div 
                         className="md:col-span-7"
                         variants={itemVariants}
