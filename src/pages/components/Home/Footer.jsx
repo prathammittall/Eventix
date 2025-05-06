@@ -50,10 +50,37 @@ const Footer = () => {
         });
     };
 
-    const handleSubscribe = (e) => {
+    const handleSubscribe = async (e) => {
         e.preventDefault();
-        alert(`Thank you for subscribing with ${email}`);
-        setEmail('');
+        try {
+            const response = await fetch('http://localhost:5000/api/sendEmail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ email }),
+                mode: 'cors'
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to subscribe');
+            }
+
+            const data = await response.json();
+            console.log('Response:', data);
+
+            alert('Thank you for subscribing! Please check your email for confirmation.');
+            setEmail('');
+        } catch (error) {
+            console.error('Detailed error:', error);
+            if (error.message === 'Failed to fetch') {
+                alert('Cannot connect to the server. Please make sure the server is running.');
+            } else {
+                alert(`Failed to subscribe: ${error.message}`);
+            }
+        }
     };
 
     return (

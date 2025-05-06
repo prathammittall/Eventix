@@ -20,7 +20,7 @@ const Register = () => {
     }
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate('/profile-setup');
+      navigate('/');
     } catch (error) {
       setError(error.message);
     }
@@ -29,7 +29,7 @@ const Register = () => {
   const handleGoogleSignUp = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      navigate('/profile-setup');
+      navigate('/');
     } catch (error) {
       setError(error.message);
     }
@@ -38,7 +38,7 @@ const Register = () => {
   const handleGithubSignUp = async () => {
     try {
       await signInWithPopup(auth, githubProvider);
-      navigate('/profile-setup');
+      navigate('/');
     } catch (error) {
       setError(error.message);
     }
