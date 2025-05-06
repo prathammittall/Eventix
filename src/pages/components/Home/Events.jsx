@@ -90,46 +90,6 @@ function Events() {
       description: "Explore the world of blockchain and cryptocurrency.",
       imageUrl: "/images/sc2.png",
       location: "Virtual Event"
-    },
-    {
-      id: 9,
-      name: "Design Thinking Workshop",
-      date: "5 December 2025",
-      status: "Online",
-      format: "Online",
-      description: "Learn creative problem-solving techniques and design thinking methodologies.",
-      imageUrl: "/images/sc3.png",
-      location: "Virtual Event"
-    },
-    {
-      id: 10,
-      name: "Data Science Summit",
-      date: "20 January 2026",
-      status: "Upcoming",
-      format: "Offline",
-      description: "Explore the world of data science, analytics, and machine learning applications.",
-      imageUrl: "/images/sc4.png",
-      location: "Mathematics Department"
-    },
-    {
-      id: 11,
-      name: "Mobile Development Bootcamp",
-      date: "15 February 2026",
-      status: "Online",
-      format: "Online",
-      description: "Intensive training on building cross-platform mobile applications.",
-      imageUrl: "/images/sc5.png",
-      location: "Virtual Event"
-    },
-    {
-      id: 12,
-      name: "UX/UI Design Conference",
-      date: "10 March 2026",
-      status: "Upcoming",
-      format: "Offline",
-      description: "Learn about latest trends and practices in user experience and interface design.",
-      imageUrl: "/images/sc6.jpg",
-      location: "Design Center"
     }
   ];
 
@@ -277,6 +237,10 @@ function Events() {
               href="#events-section"
               whileHover={{ y: -3 }}
               className="mt-6 text-gray-400 hover:text-white flex items-center gap-2 transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('events-section').scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
