@@ -4,6 +4,7 @@ import { auth } from '../../../firebase';
 import { motion } from 'framer-motion';
 import { FaCalendarAlt, FaUsers, FaTicketAlt, FaCalendarCheck, FaHome, FaUserEdit, FaEnvelope, FaPhone, FaUniversity } from 'react-icons/fa';
 
+
 const Dashboard = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);

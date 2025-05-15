@@ -1,4 +1,3 @@
-//Navbar.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,6 +6,7 @@ import { IoIosInformationCircle } from 'react-icons/io';
 import { BsChatSquareDots } from 'react-icons/bs';
 import { auth } from '../../../firebase';
 import { signOut } from 'firebase/auth';
+
 
 const navItems = [
     { 

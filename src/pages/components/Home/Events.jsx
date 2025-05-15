@@ -93,6 +93,7 @@ function Events() {
     }
   ];
 
+  
   // Filter event data based on search query and selected filter
   const filteredEvents = eventsData.filter(event => {
     const matchesSearch = event.name.toLowerCase().includes(searchQuery.toLowerCase()) || 

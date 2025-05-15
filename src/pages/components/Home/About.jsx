@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+
 function About() {
   return (
     <div id="about-section" className='w-full min-h-screen py-16 px-4 sm:px-6 lg:px-8'>

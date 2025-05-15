@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion';
 
 // This is a card connected to Events Section
-
 function Cards(props) {
     return (
         <motion.div 

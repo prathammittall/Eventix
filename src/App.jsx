@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-
 import Loaders from './pages/components/Home/loader';
 import Navbar from './pages/components/Home/Navbar';
 import Hero from './pages/components/Home/Hero';
